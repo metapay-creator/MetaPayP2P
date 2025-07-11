@@ -9,20 +9,6 @@ const userLabels = [
 
 const nationalWallet = "0xD7ACd2a9FD159E69Bb102A1ca21C9a3e3A5F771B";
 
-// ✅ 사용자 실제 지갑 주소 직접 지정
-const userAddresses = [
-  "0xcAEc83c59b3FbfE65cC73828e9c89b9c07902105",
-  "0x3C39f84a28673bdbA9f19eaAd26e04d95795260C",
-  "0x9D2b9Acad30E1D2a0bb81e96816506C166F2076A",
-  "0x37f047f304B49cE83b5630BCb1D6DF4b05eeD305",
-  "0x4194b9E02e733f112b2b44f40554DAB0EA60b470",
-  "0xc95132B717cFCac125423e07429e8894D18c357B",
-  "0xA0831b8e8628b2C683cd98Fd17020d2376582073",
-  "0x5317F13e44d02E44c899010D4Fb11985657c26D8",
-  "0x4f4728FA3FF45b5459Bfb64C5CD0D78FaEBe12f6",
-  "0xA80E21304603C453f416bE77b210ED0AFf400ed7",
-];
-
 function App() {
   const [provider, setProvider] = useState(null);
   const [signer, setSigner] = useState(null);
@@ -104,17 +90,18 @@ function App() {
     const summary = [];
 
     balances.forEach((_, idx) => {
-      const userAddress = userAddresses[idx]; // ✅ 직접 주소 사용
-      const income = transactions.filter(tx => tx.to === userAddress).reduce((sum, tx) => sum + tx.amount, 0);
-      const outflow = transactions.filter(tx => tx.from === userAddress).reduce((sum, tx) => sum + tx.amount, 0);
+      const userAddress = userLabels[idx];
+      const address = contract.users ? contract.users[idx] : null;
+      const income = transactions.filter(tx => tx.to === address).reduce((sum, tx) => sum + tx.amount, 0);
+      const outflow = transactions.filter(tx => tx.from === address).reduce((sum, tx) => sum + tx.amount, 0);
       const ratio = income > 0 ? outflow / income : 0;
 
       if (ratio > 0.8) {
-        summary.push(`⚠️ ${userLabels[idx]}: High outflow (${Math.round(ratio * 100)}%)`);
+        summary.push(`${userLabels[idx]}: High outflow (${Math.round(ratio * 100)}%)`);
       } else if (income > 0 && outflow === 0) {
-        summary.push(`⚠️ ${userLabels[idx]}: Dormant wallet`);
+        summary.push(`${userLabels[idx]}: Dormant wallet`);
       } else {
-        summary.push(`✅ ${userLabels[idx]}: Normal`);
+        summary.push(`${userLabels[idx]}: Normal`);
       }
     });
 
@@ -127,7 +114,6 @@ function App() {
       <p>Connected wallet: {connectedAddress}</p>
       <p>National wallet balance: {nationalBalance}</p>
 
-      {/* User Balances */}
       <div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: "1rem", marginBottom: "1rem" }}>
         {[0, 1, 2, 3, 4].map(idx => (
           <div key={idx} style={{ border: "1px solid #ccc", padding: "1rem", width: "150px", borderRadius: "8px" }}>
@@ -145,7 +131,6 @@ function App() {
         ))}
       </div>
 
-      {/* Buttons */}
       <div style={{ marginBottom: "1rem" }}>
         <button onClick={distribute}>Distribute</button>{" "}
         <button onClick={collect}>Collect</button>{" "}
@@ -154,7 +139,6 @@ function App() {
         <button onClick={analyzeTransactions}>Run AI Analysis</button>
       </div>
 
-      {/* P2P Transfer */}
       <div style={{ marginTop: "2rem" }}>
         <h3>P2P Transfer</h3>
         <input
@@ -174,15 +158,22 @@ function App() {
         <button onClick={transfer}>Send</button>
       </div>
 
-      {/* AI Report */}
+      {/* ✅ 수정된 AI 분석 결과 표시 */}
       {aiReport.length > 0 && (
-        <div style={{ marginTop: "2rem", textAlign: "left", maxWidth: "500px", marginInline: "auto" }}>
+        <div style={{ marginTop: "2rem", textAlign: "center", maxWidth: "600px", marginInline: "auto" }}>
           <h3>AI Analysis Result</h3>
-          <ul>
-            {aiReport.map((line, idx) => (
-              <li key={idx}>{line}</li>
-            ))}
-          </ul>
+          <div style={{ display: "flex", justifyContent: "center", gap: "4rem", flexWrap: "wrap" }}>
+            <ul style={{ listStyleType: "none", padding: 0, textAlign: "left" }}>
+              {aiReport.slice(0, 5).map((line, idx) => (
+                <li key={idx}>✅ {line}</li>
+              ))}
+            </ul>
+            <ul style={{ listStyleType: "none", padding: 0, textAlign: "left" }}>
+              {aiReport.slice(5).map((line, idx) => (
+                <li key={idx + 5}>✅ {line}</li>
+              ))}
+            </ul>
+          </div>
         </div>
       )}
     </div>
