@@ -31,16 +31,14 @@
   - Access to the simulation DApp
 
 ---
-
 ## 🔁 Circulation Logic of MetaPay
-
-![MetaPay Circulation](metapay-circulation.png)
+![MetaPay Circulation](public/metapay-circulation.png)
 
 ---
 
 ## 🧠 AI Risk Analysis
+![AI Risk Analysis](public/ai-risk-analysis.png)
 
-![AI Risk Analysis](ai-risk-analysis.png)
 
 ---
 
