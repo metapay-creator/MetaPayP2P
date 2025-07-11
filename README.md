@@ -30,15 +30,65 @@
   - A list of 10 citizen test wallet addresses
   - Access to the simulation DApp
 
-# React + Vite
+---
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🔁 Circulation Logic of MetaPay
 
-Currently, two official plugins are available:
+![MetaPay Circulation](metapay-circulation.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🧠 AI Risk Analysis
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+![AI Risk Analysis](ai-risk-analysis.png)
+
+---
+
+## 📎 Project Links
+
+- 🌐 **DApp**: https://meta-pay-p2-p.vercel.app  
+- 🧠 **Forum Post**: [MetaPay Thread on CEG Forum](https://forum.ceg.vote/t/metapay-a-circulating-basic-income-model-with-digital-currency/5537/34)  
+- 🐙 **GitHub**: https://github.com/metapay-creator/MetaPayP2P  
+- 🐦 **X (Twitter)**: https://x.com/metapay_creator
+
+---
+
+## 📩 Contact
+
+If you want to participate, collaborate, or ask questions:
+
+- Email: **anioia33@gmail.com**  
+- Or comment on the [Forum thread](https://forum.ceg.vote/t/metapay-a-circulating-basic-income-model-with-digital-currency/5537/34)
+
+---
+
+## 🧰 Tech Stack
+
+- `Solidity` smart contract on **Sepolia Testnet**
+- `React + Vite` frontend with MetaMask integration
+- `Ethers.js` for Web3 interaction
+- JS-based AI behavior simulator (Alith-style monitoring)
+
+---
+
+## 📂 Project Structure
+
+MetaPayP2P/
+├── public/
+│ ├── ai-risk-analysis.png
+│ └── metapay-circulation.png
+├── src/
+│ ├── App.jsx
+│ └── abi.js
+├── README.md
+...
+
+
+---
+
+## ⚖ License
+
+MIT License  
+© 2025 Gyuha Yoon – MetaPay Project for HyperHack
+
+
