@@ -18,6 +18,8 @@ function App() {
   const [nationalBalance, setNationalBalance] = useState(0);
   const [toAddress, setToAddress] = useState("");
   const [amount, setAmount] = useState("");
+  const [transactions, setTransactions] = useState([]); // ✅ 추가됨
+  const [aiReport, setAiReport] = useState([]); // ✅ 추가됨
 
   useEffect(() => {
     const connect = async () => {
@@ -69,6 +71,8 @@ function App() {
     if (contract) {
       const tx = await contract.resetAll();
       await tx.wait();
+      setTransactions([]); // ✅ 리셋 시 거래 기록도 초기화
+      setAiReport([]);
       fetchBalances();
     }
   };
@@ -77,8 +81,32 @@ function App() {
     if (contract && toAddress && amount) {
       const tx = await contract.transfer(toAddress, ethers.parseUnits(amount, 0));
       await tx.wait();
+      setTransactions(prev => [...prev, { from: connectedAddress, to: toAddress, amount: Number(amount) }]); // ✅ 거래 저장
       fetchBalances();
     }
+  };
+
+  // ✅ AI 분석 함수
+  const analyzeTransactions = () => {
+    const summary = [];
+
+    balances.forEach((_, idx) => {
+      const userAddress = userLabels[idx];
+      const address = contract.users ? contract.users[idx] : null;
+      const income = transactions.filter(tx => tx.to === address).reduce((sum, tx) => sum + tx.amount, 0);
+      const outflow = transactions.filter(tx => tx.from === address).reduce((sum, tx) => sum + tx.amount, 0);
+      const ratio = income > 0 ? outflow / income : 0;
+
+      if (ratio > 0.8) {
+        summary.push(`⚠️ ${userLabels[idx]}: High outflow (${Math.round(ratio * 100)}%)`);
+      } else if (income > 0 && outflow === 0) {
+        summary.push(`⚠️ ${userLabels[idx]}: Dormant wallet`);
+      } else {
+        summary.push(`✅ ${userLabels[idx]}: Normal`);
+      }
+    });
+
+    setAiReport(summary);
   };
 
   return (
@@ -110,7 +138,8 @@ function App() {
         <button onClick={distribute}>Distribute</button>{" "}
         <button onClick={collect}>Collect</button>{" "}
         <button onClick={reset}>Reset</button>{" "}
-        <button onClick={fetchBalances}>Check All Balances</button>
+        <button onClick={fetchBalances}>Check All Balances</button>{" "}
+        <button onClick={analyzeTransactions}>Run AI Analysis</button> {/* ✅ 추가 */}
       </div>
 
       {/* Transfer section */}
@@ -132,6 +161,18 @@ function App() {
         />{" "}
         <button onClick={transfer}>Send</button>
       </div>
+
+      {/* ✅ AI 분석 결과 출력 */}
+      {aiReport.length > 0 && (
+        <div style={{ marginTop: "2rem", textAlign: "left", maxWidth: "500px", marginInline: "auto" }}>
+          <h3>AI Analysis Result</h3>
+          <ul>
+            {aiReport.map((line, idx) => (
+              <li key={idx}>{line}</li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }
