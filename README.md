@@ -1,3 +1,6 @@
+> ⚠️ License Notice:
+> This project is protected by copyright. Unauthorized use is strictly prohibited.  
+> Contact: anioia33@gmail.com
 # MetaPayP2P – Web3 Basic Income Simulation with Peer Transfers
 
 > A circulating basic income simulation with blockchain distribution, AI behavior monitoring, and real-time peer transfers.
