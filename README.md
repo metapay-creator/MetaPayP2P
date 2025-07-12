@@ -1,7 +1,8 @@
+# MetaPayP2P – Web3 Basic Income Simulation with AI & Peer Transfers (Powered by OpenAI API)
 
-⚠️ License Notice  
-This project is protected by copyright. Unauthorized use is strictly prohibited.  
-Contact: anioia33@gmail.com
+![License: Custom MIT (no commercial use)](https://img.shields.io/badge/license-MIT--No--Commercial--Use-red)
+
+> A blockchain-based universal basic income simulation with automated peer transfers and OpenAI-powered reasoning logic.
 
 # MetaPayP2P – Web3 Basic Income Simulation with Peer Transfers
 
@@ -145,7 +146,4 @@ MetaPayP2P/
 
 ---
 
-## ⚖ License
 
-MIT License  
-© 2025 Gyuha Yoon – MetaPay Project for HyperHack
