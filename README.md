@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 ⚠️ **License Notice**  
 This project is protected by copyright. Unauthorized use is strictly prohibited.  
 Contact: anioia33@gmail.com
@@ -17,20 +17,17 @@ MetaPayP2P – Web3 Basic Income Simulation with Peer Transfers
   
 
 🧭 "Freedom through basic income — made sustainable via smart contracts and AI."
->>>>>>> d31685028e61c0b83ec0b6dff87df16b4e1a19fb
 
 A circulating basic income simulation with blockchain distribution, AI behavior monitoring, and real-time peer transfers.
 
 🌍 Why This Matters
 
-<<<<<<< HEAD
 **MetaPayP2P** demonstrates a sustainable, self-circulating basic income model —  
 one that doesn’t rely on unlimited government funding or taxation.  
 By combining immutable blockchain distribution with non-intrusive AI monitoring,  
 MetaPay enables digital economic freedom and scalable public benefit.
 =======
 MetaPayP2P demonstrates a sustainable, self-circulating basic income model—one that doesn’t rely on unlimited government funding or taxation.By combining immutable blockchain distribution with non-intrusive AI monitoring,MetaPay enables digital economic freedom and scalable public benefit.
->>>>>>> d31685028e61c0b83ec0b6dff87df16b4e1a19fb
 
 🧪 Simulation Structure
 
@@ -38,7 +35,6 @@ Total: 15 rounds
 
 10 rounds of national wallet distribution
 
-<<<<<<< HEAD
 ⏱️ **Time-Compressed Simulation**
 
 - 2 minutes simulate 1 month.
@@ -48,7 +44,7 @@ Total: 15 rounds
 - After 10 distributions, 5 rounds of collection + redistribution follow.
 =======
 5 rounds of collection + redistribution
->>>>>>> d31685028e61c0b83ec0b6dff87df16b4e1a19fb
+
 
 Full cycle ≈ 30 minutes (accelerated for testing)
 
@@ -56,7 +52,6 @@ Full cycle ≈ 30 minutes (accelerated for testing)
 
 2 minutes simulate 1 month.
 
-<<<<<<< HEAD
 ### 📌 Requirements
 
 - Sepolia testnet ETH is required to cover gas fees.
@@ -84,7 +79,6 @@ Include:
 Every 2 minutes, the national wallet distributes 500 units to 10 users.
 
 After each distribution, P2P transfers are allowed for 1 minute, starting 30 seconds after funds are received.
->>>>>>> d31685028e61c0b83ec0b6dff87df16b4e1a19fb
 
 Data is then collected, and the next round begins.
 
@@ -94,7 +88,6 @@ After 10 distributions, 5 rounds of collection + redistribution follow.
 
 A separate frontend DApp is provided for each of the 10 test users.
 
-<<<<<<< HEAD
 ## 🤖 AI Analyze (Experimental)
 
 This simulation includes an experimental AI module that analyzes P2P transactions.
@@ -119,7 +112,6 @@ No financial or behavioral decisions should rely solely on this module.
 You will receive a Sepolia wallet address and DApp link to participate.
 
 MetaMask must be connected to the Sepolia testnet.
->>>>>>> d31685028e61c0b83ec0b6dff87df16b4e1a19fb
 
 You must initiate at least one P2P transfer within the allowed time per round.
 
@@ -129,7 +121,6 @@ Sepolia testnet ETH is required to cover gas fees.
 
 Only developers or active Web3 users may apply. Not open to general users.
 
-<<<<<<< HEAD
 🔒 AI never interferes with the national wallet’s fund flow.  
 It supports user behavior transparency — not control.
 =======
@@ -195,7 +186,6 @@ This structure ensures AI is used ethically and effectively, supporting financia
 
 🌐 DApp: https://meta-pay-p2-p.vercel.app
 
-<<<<<<< HEAD
 - 🌐 **DApp**: https://meta-pay-p2-p.vercel.app  
 - 🧠 **Forum Post**: [MetaPay Thread on CEG Forum](https://forum.ceg.vote/t/metapay-a-circulating-basic-income-model-with-digital-currency/5537/34)  
 - 🐙 **GitHub**: https://github.com/metapay-creator/MetaPayP2P  
@@ -216,7 +206,6 @@ This structure ensures AI is used ethically and effectively, supporting financia
 If you want to participate, collaborate, or ask questions:
 
 Email: anioia33@gmail.com
->>>>>>> d31685028e61c0b83ec0b6dff87df16b4e1a19fb
 
 Or comment on the Forum thread
 
@@ -237,13 +226,11 @@ npm install
 npm run dev
 ```
 
-<<<<<<< HEAD
 ### 📂 Project Structure
 
 ```
 =======
 📂 Project Structure
->>>>>>> d31685028e61c0b83ec0b6dff87df16b4e1a19fb
 MetaPayP2P/
 ├── public/
 │   ├── ai-banner.png
@@ -257,7 +244,6 @@ MetaPayP2P/
 ├── README.md
 ```
 
-<<<<<<< HEAD
 ---
 
 ## 📊 Summary Table
@@ -298,4 +284,4 @@ Smart Contract	           Sepolia testnet (address provided)
 
 MIT License© 2025 Gyuha Yoon – MetaPay Project for HyperHack
 
->>>>>>> d31685028e61c0b83ec0b6dff87df16b4e1a19fb
+
